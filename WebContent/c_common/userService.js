@@ -23,9 +23,17 @@ app.factory('userService', function($http) {
 
 	userService.login = function(user) {
 		console.log('login service')
-		return $http.post(BASE_URL + "/user/validate/", user).then(function(response) {
-			return response.data
-		}, null)
+		return $http.post(BASE_URL + "/user/validate/", user).then(
+				function(response) {
+					return response.data
+				}, null)
+	},
+
+	userService.logout = function() {
+		console.log('logging out')
+		return $http.get(BASE_URL + "/user/logout/").then(function(response) {
+			return response.data;
+		}, null);
 	}
 
 	return userService;
