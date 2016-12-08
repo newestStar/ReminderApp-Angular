@@ -1,0 +1,75 @@
+<!--created by ikism on Dec 7, 2016 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="c_resource/assets/css/main.css" />
+<title>Insert title here</title>
+</head>
+<body data-ng-app="myApp">
+	<!-- Header -->
+	<header id="header">
+		<nav class="left">
+			<a href="#menu"><span>Menu</span></a>
+		</nav>
+		<a href="#/" class="logo">Remindist</a>
+		<nav class="right">
+			<a href="#/login" class="button alt">Log in</a> <a href="#/register"
+				class="button alt">Register</a>
+		</nav>
+	</header>
+
+	<!-- Menu -->
+	<nav id="menu">
+		<ul class="links">
+			<li><a href="#/">Home</a></li>
+			<li><a href="#">Generic</a></li>
+			<li><a href="#/contactUs">Contact Us</a></li>
+		</ul>
+		<ul class="actions vertical">
+			<li><a href="#" class="button fit">Login</a></li>
+			<li><a href="#/register" class="button fit">Register</a></li>
+		</ul>
+	</nav>
+
+	<div data-ng-view=""></div>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<h2>Get In Touch</h2>
+			<ul class="actions">
+				<li><span class="icon fa-phone"></span> <a href="#">+91-8124794942</a></li>
+				<li><span class="icon fa-envelope"></span> <a href="#">ikismail@gmail.com</a></li>
+				<li><span class="icon fa-map-marker"></span> 47/9-5 Burma
+					Colony, Virudhunagar - 626001</li>
+			</ul>
+		</div>
+		<div class="copyright">
+			&copy; Untitled. Design <a href="#/">MOHAMMED ISMAIL</a>. Images <a
+				href="#/">Unsplash</a>.
+		</div>
+	</footer>
+
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="c_resource/assets/js/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="c_resource/assets/js/jquery.scrolly.min.js"></script>
+	<script type="text/javascript" src="c_resource/assets/js/skel.min.js"></script>
+	<script type="text/javascript" src="c_resource/assets/js/util.js"></script>
+	<script type="text/javascript" src="c_resource/assets/js/main.js"></script>
+
+	<!--Angular Scripts -->
+	<script type="text/javascript"
+		src="c_resource/assets/js/angular.min.js"></script>
+	<script type="text/javascript"
+		src="c_resource/assets/js/angular-route.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="c_common/userController.js"></script>
+	<script type="text/javascript" src="c_common/userService.js"></script>
+
+</body>
+</html>
