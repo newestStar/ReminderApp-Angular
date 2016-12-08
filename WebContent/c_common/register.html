@@ -1,0 +1,60 @@
+<!--created by ikism on Dec 7, 2016 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body data-ng-controller="userController">
+
+	<!-- Form -->
+	<div style="margin: 60px">
+		<h3>Registration Form</h3>
+
+		<form data-ng-submit="submit()" name="myForm">
+			<div class="row uniform">
+				<div class="6u 12u$(xsmall)">
+					<label>First Name</label> <input type="text" name="fName"
+						id="fName" value="" placeholder="First Name"
+						data-ng-model="user.fName" /> {{user.fName}}
+				</div>
+				<div class="6u 12u$(xsmall)">
+					<label>Last Name</label> <input type="text" name="lName" id="lName"
+						value="" placeholder="Last Name" data-ng-model="user.lName" />
+				</div>
+
+				<div class="6u 12u$(xsmall)">
+					<label>Phone Number</label> <input type="text" name="phoneNo"
+						id="phoneNo" value="" placeholder="Phone Number"
+						data-ng-model="user.phoneNo" />
+				</div>
+
+				<div class="6u 12u$(xsmall)">
+					<label>City</label> <input type="text" name="city" id="city"
+						value="" placeholder="Current City" data-ng-model="user.city" />
+				</div>
+
+				<div class="6u 12u$(xsmall)">
+					<label>EmailId</label> <input type="email" name="email" id="email"
+						value="" placeholder="Email" data-ng-model="user.emailId" />
+				</div>
+
+				<div class="6u 12u$(xsmall)">
+					<label>Password</label> <input type="password" name="password"
+						id="password" value="" placeholder="********"
+						data-ng-model="user.password" />
+				</div>
+
+				<!-- Break -->
+				<div class="12u$">
+					<ul class="actions" style="text-align: center;">
+						<li><input type="submit" value="Submit" /></li>
+						<li><input type="reset" value="Reset" class="alt" /></li>
+					</ul>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
