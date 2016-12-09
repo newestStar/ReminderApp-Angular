@@ -6,9 +6,17 @@
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="c_resource/assets/css/main.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="c_resource/assets/js/jquery.min.js"></script>
+	
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 <title>Insert title here</title>
 </head>
-<body data-ng-app="myApp">
+<body data-ng-app="myApp" data-ng-controller="userController">
 	<!-- Header -->
 	<header id="header">
 		<nav class="left">
@@ -16,8 +24,15 @@
 		</nav>
 		<a href="#/" class="logo">Remindist</a>
 		<nav class="right">
-			<a href="#/login" class="button alt">Log in</a> <a href="#/register"
+			<span data-ng-show="currentUser"> <a href=""
+				class="button alt">{{currentUser.fName +" " +currentUser.lName}}</a>
+			</span> <span data-ng-hide="currentUser"> <a href="#/login"
+				class="button alt">Log in</a>
+			</span> <span data-ng-show="currentUser">
+				<button data-ng-click="logout()" class="button alt">Log out</button>
+			</span> <span data-ng-hide="currentUser"> <a href="#/register"
 				class="button alt">Register</a>
+			</span>
 		</nav>
 	</header>
 
@@ -27,10 +42,11 @@
 			<li><a href="#/">Home</a></li>
 			<li><a href="#">Generic</a></li>
 			<li><a href="#/contactUs">Contact Us</a></li>
-		</ul>
-		<ul class="actions vertical">
-			<li><a href="#" class="button fit">Login</a></li>
-			<li><a href="#/register" class="button fit">Register</a></li>
+
+			<!-- 			<span data-ng-show="currentUser"> -->
+			<li><a href="#/addEvent">Add Note</a></li>
+			<li><a href="#/eventList">Note List</a></li>
+			<!-- 			</span> -->
 		</ul>
 	</nav>
 
@@ -55,7 +71,6 @@
 
 
 	<!-- Scripts -->
-	<script type="text/javascript" src="c_resource/assets/js/jquery.min.js"></script>
 	<script type="text/javascript"
 		src="c_resource/assets/js/jquery.scrolly.min.js"></script>
 	<script type="text/javascript" src="c_resource/assets/js/skel.min.js"></script>
@@ -67,9 +82,13 @@
 		src="c_resource/assets/js/angular.min.js"></script>
 	<script type="text/javascript"
 		src="c_resource/assets/js/angular-route.min.js"></script>
+	<script type="text/javascript"
+		src="c_resource/assets/js/angular-cookies.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="c_common/userController.js"></script>
 	<script type="text/javascript" src="c_common/userService.js"></script>
+	<script type="text/javascript" src="c_event/eventController.js"></script>
+	<script type="text/javascript" src="c_event/eventService.js"></script>
 
 </body>
 </html>

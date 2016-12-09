@@ -1,0 +1,49 @@
+<!--created by ikism on Dec 8, 2016 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div style="margin: 60px">
+
+		<div class="9u 12u$(small)" style="margin-bottom: 38px">
+			<input type="text" name="query" id="query" value=""
+				placeholder="Search Notes" data-ng-model="search" />
+		</div>
+
+
+		<h4>Notes List</h4>
+		<div class="table-wrapper">
+			<table class="alt">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="ev in events | filter:search">
+						<td style="text-align: center; width: 200px">{{ev.title}}</td>
+						<td style="width: 650px">{{ev.description}}</td>
+						<td style="width: 237px"><a href="" class="btn btn-info"
+							role="button"> <span class="glyphicon glyphicon-info-sign"></span>
+								View
+						</a> <a href="" class="btn btn-warning" role="button"> <span
+								class="glyphicon glyphicon-edit"></span> Edit
+						</a> <a href="" class="btn btn-danger" role="button"> <span
+								class="glyphicon glyphicon-trash"></span> Remove
+						</a></td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+	</div>
+</body>
+</html>
