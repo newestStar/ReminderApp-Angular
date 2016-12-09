@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="margin: 60px">
+	<div style="margin: 60px" class="container">
 
 		<div class="9u 12u$(small)" style="margin-bottom: 38px">
 			<input type="text" name="query" id="query" value=""
@@ -20,27 +20,76 @@
 			<table class="alt">
 				<thead>
 					<tr>
-						<th>Name</th>
+						<th>Title</th>
 						<th>Description</th>
-						<th>Price</th>
+						<th>Manage</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr data-ng-repeat="ev in events | filter:search">
-						<td style="text-align: center; width: 200px">{{ev.title}}</td>
+						<td style="width: 200px">{{ev.title}}</td>
 						<td style="width: 650px">{{ev.description}}</td>
-						<td style="width: 237px"><a href="" class="btn btn-info"
-							role="button"> <span class="glyphicon glyphicon-info-sign"></span>
-								View
-						</a> <a href="" class="btn btn-warning" role="button"> <span
-								class="glyphicon glyphicon-edit"></span> Edit
-						</a> <a href="" class="btn btn-danger" role="button"> <span
-								class="glyphicon glyphicon-trash"></span> Remove
+						<td style="width: 275px"><a href="" class="btn btn-info"
+							role="button" data-toggle="modal" data-target="#myModal"
+							data-ng-click="getById(ev.eventId)"> <span
+								class="glyphicon glyphicon-info-sign"></span> View
+						</a> <a href="#/edit/{{ev.eventId}}" class="btn btn-warning"
+							role="button"> <span class="glyphicon glyphicon-edit"></span>
+								Edit
+						</a> <a href="" class="btn btn-danger" role="button"
+							data-ng-click="deleteEvent(ev.eventId)" style="margin-left: 4px">
+								<span class="glyphicon glyphicon-trash"></span> Remove
 						</a></td>
 					</tr>
 
 				</tbody>
 			</table>
+
+			<!-- Break -->
+			<div class="modal fade" id="myModal" role="dialog"
+				style="margin-top: 69px">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">NOTEBOOK</h4>
+						</div>
+						<div class="modal-body">
+							<form name="myForm" style="text-align: center;">
+								<div class="row uniform">
+									<div class="12u$ 12u$(small)" style="float: right;">
+										<!-- 					<iframe width="560" height="315" -->
+										<!-- 						src="https://www.youtube.com/embed/MfE1eyoorTM" frameborder="0" -->
+										<!-- 						allowfullscreen></iframe> -->
+									</div>
+									<div class="12u$ 12u$(small)">
+										<input type="text" name="title" id="title"
+											value="{{event.title}}" placeholder="Title" disabled
+											style="text-align: center;" />
+									</div>
+
+									<!-- Break -->
+									<div class="12u$ 12u$(small)">
+										<p>{{event.description}}</p>
+									</div>
+									<!-- Break -->
+									<div class="12u$ 12u$(small)">
+										<label>Dead Line</label> <input type="text" name="date"
+											id="date" value="{{event.deadLine}}" placeholder="DD-MM-YYYY"
+											disabled style="text-align: center;" />
+
+									</div>
+								</div>
+							</form>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- Break -->
 		</div>
 
 	</div>
