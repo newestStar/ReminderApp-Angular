@@ -14,11 +14,11 @@ app.controller('editController', function($scope, $routeParams, $location,
 	}, null)
 
 	$scope.update = function() {
-		console.log('entering update function')
+		console.log('entering update function in editController')
 		eventService.updateEvent(eventId, $scope.event);
 		console.log('updated successfully')
 		alert('updated successfully');
-		$location.path('/');
+		$location.path("/eventList");
 	};
 
 })

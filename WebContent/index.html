@@ -9,7 +9,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript" src="c_resource/assets/js/jquery.min.js"></script>
-	
+
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -42,11 +42,10 @@
 			<li><a href="#/">Home</a></li>
 			<li><a href="#">Generic</a></li>
 			<li><a href="#/contactUs">Contact Us</a></li>
+			<li data-ng-show="currentUser"><a href="#/addEvent">Add Note</a></li>
+			<li data-ng-show="currentUser"><a href="#/eventList">Note
+					List</a></li>
 
-			<!-- 			<span data-ng-show="currentUser"> -->
-			<li><a href="#/addEvent">Add Note</a></li>
-			<li><a href="#/eventList">Note List</a></li>
-			<!-- 			</span> -->
 		</ul>
 	</nav>
 

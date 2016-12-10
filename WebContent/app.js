@@ -13,31 +13,24 @@ app.config(function($routeProvider) {
 		templateUrl : 'c_common/middle.html'
 	}).when('/contactUs', {
 		templateUrl : 'c_common/contactUs.html'
-	})
-
-	// User Module
-
-	.when('/register', {
+			
+	}).when('/register', {
 		templateUrl : 'c_common/register.html',
 		controller : 'userController'
 	}).when('/login', {
 		templateUrl : 'c_common/login.html',
 		controller : 'userController'
-	})
-
-	// Event module
-
-	.when('/addEvent', {
+			
+	}).when('/addEvent', {
 		templateUrl : 'c_event/addEvent.html',
 		controller : 'eventController'
 	}).when('/eventList', {
 		templateUrl : 'c_event/eventList.html',
 		controller : 'eventController'
-	})
+	}).when('/edit/:eventId', {
+		templateUrl : 'c_event/editEvent.html',
+		controller : 'editController'
 
-	.when('/edit/:eventId', {
-		controller : 'editController',
-		templateUrl : 'c_event/editEvent.html'
 	}).otherwise({
 		redirectTo : '/'
 	})
