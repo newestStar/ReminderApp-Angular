@@ -16,23 +16,36 @@ app.controller('eventController', [ '$scope', 'eventService', '$http',
 				userId : ''
 			};
 
-			$scope.events;
+			$scope.completedEvents;
+			$scope.unCompletedEvents;
 
-			function fetchAllEvents() {
+			function fetchUncompletedEvents() {
 				console.log('entering all events')
-				eventService.fetchAllEvents().then(function(data) {
-					$scope.events = data;
+				eventService.fetchUncompletedEvents().then(function(data) {
+					$scope.unCompletedEvents = data;
 				}, function(error) {
 					console.error('Error : ' + error)
 				});
 			}
 			;
-			fetchAllEvents();
+
+			function fetchcompletedEvents() {
+				console.log('entering all events')
+				eventService.fetchcompletedEvents().then(function(data) {
+					$scope.completedEvents = data;
+				}, function(error) {
+					console.error('Error : ' + error)
+				});
+			}
+			;
+
+			fetchUncompletedEvents();
+			fetchcompletedEvents();
 
 			$scope.createEvent = function(event) {
 				console.log('entering create event')
 				eventService.createEvent(event).then(function() {
-					fetchAllEvents()
+					fetchUncompletedEvents()
 					$location.path("/eventList");
 				}, function(error) {
 					console.log('Error : ' + error)
@@ -74,6 +87,30 @@ app.controller('eventController', [ '$scope', 'eventService', '$http',
 					console.log('Data' + $scope.event.title)
 				}, function() {
 					console.log('Unable to getById')
+				})
+			};
+
+			$scope.completeEvent = function(eventId) {
+				console.log('entering completeEvent controller')
+				eventService.complete(eventId).then(function() {
+					console.log('Completed')
+					fetchUncompletedEvents();
+					fetchcompletedEvents();
+					$location.path("/eventList")
+				}, function() {
+					console.log('unable to Complete')
+				})
+			};
+
+			$scope.unCompleteEvent = function(eventId) {
+				console.log('entering unCompleteEvent controller')
+				eventService.unComplete(eventId).then(function() {
+					console.log('unCompleted')
+					fetchUncompletedEvents();
+					fetchcompletedEvents();
+					$location.path("/eventList")
+				}, function() {
+					console.log('unable to unCompleted')
 				})
 			};
 

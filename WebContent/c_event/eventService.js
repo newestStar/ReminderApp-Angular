@@ -8,10 +8,23 @@ app.factory('eventService', function($http) {
 
 	var eventService = this;
 
-	eventService.fetchAllEvents = function() {
+	eventService.fetchcompletedEvents = function() {
 
-		console.log('----entering getAllUsers')
-		return $http.get(BASE_URL + "/event/getMyEvents").then(
+		console.log('----entering completed Events')
+		return $http.get(BASE_URL + "/event/getCompletedEvents").then(
+				function(response) {
+					console.log('Status : ' + response.status)
+					return response.data
+				}, function(response) {
+					console.log('Error : ' + response.data)
+					return response.data
+				});
+	};
+	
+	eventService.fetchUncompletedEvents = function() {
+
+		console.log('----entering completed Events')
+		return $http.get(BASE_URL + "/event/getUnCompletedEvents").then(
 				function(response) {
 					console.log('Status : ' + response.status)
 					return response.data
@@ -38,13 +51,14 @@ app.factory('eventService', function($http) {
 	eventService.getEvent = function(eventId) {
 		return $http.get(BASE_URL + "/event/getEventById/" + eventId)
 	};
-	
+
 	eventService.getEventById = function(eventId) {
-		return $http.get(BASE_URL + "/event/getEventById/" + eventId).then(function(response){
-			return response.data
-		},function(error){
-			console.error('Error GetById' + error )
-		})
+		return $http.get(BASE_URL + "/event/getEventById/" + eventId).then(
+				function(response) {
+					return response.data
+				}, function(error) {
+					console.error('Error GetById' + error)
+				})
 	};
 
 	eventService.updateEvent = function(eventId, event) {
@@ -64,6 +78,29 @@ app.factory('eventService', function($http) {
 					console.log(response.status)
 				})
 	};
+
+	eventService.complete = function(eventId) {
+		console.log('entering complete service')
+		return $http.get(BASE_URL + "/completed/" + eventId).then(
+				function(response) {
+					console.log(response.status)
+					return response.status
+				}, function() {
+					console.log(reponse.status)
+				})
+	};
+	
+	eventService.unComplete = function(eventId) {
+		console.log('entering unComplete service')
+		return $http.get(BASE_URL + "/Uncompleted/" + eventId).then(
+				function(response) {
+					console.log(response.status)
+					return response.status
+				}, function() {
+					console.log(reponse.status)
+				})
+	};
+
 	return eventService;
 
 });

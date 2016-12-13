@@ -14,7 +14,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-<title>Insert title here</title>
+<title>Remindist</title>
 </head>
 <body data-ng-app="myApp" data-ng-controller="userController">
 	<!-- Header -->
@@ -46,6 +46,12 @@
 			<li data-ng-show="currentUser"><a href="#/eventList">Note
 					List</a></li>
 
+		</ul>
+		<ul class="actions vertical">
+			<li data-ng-hide="currentUser"><a href="#/login"
+				class="button fit">Login</a></li>
+			<li data-ng-hide="currentUser"><a href="#/register"
+				class="button fit">Register</a></li>
 		</ul>
 	</nav>
 
