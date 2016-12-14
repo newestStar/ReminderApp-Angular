@@ -1,4 +1,4 @@
-<!--created by ikism on Dec 8, 2016 -->
+<!--created by ikism on Dec 9, 2016 -->
 
 <!DOCTYPE html>
 <html>
@@ -6,21 +6,21 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body data-ng-controller="editController">
 	<!-- Form -->
 	<div style="margin: 60px">
-		<h3>NOTEBOOK</h3>
+		<h3>Update Event</h3>
 
-		<form name="myForm" data-ng-submit="submit()">
+		<form name="myForm">
 			<div class="row uniform">
 				<div class="6u$ 12u$(small)" style="float: right;">
-					 					<iframe width="560" height="315" 
-					 						src="https://www.youtube.com/embed/MfE1eyoorTM" frameborder="0" 
-					 						allowfullscreen></iframe>
+					<!-- 					<iframe width="560" height="315" -->
+					<!-- 						src="https://www.youtube.com/embed/MfE1eyoorTM" frameborder="0" -->
+					<!-- 						allowfullscreen></iframe> -->
 				</div>
 				<div class="6u$ 12u$(small)">
 					<input type="text" name="title" id="title" value=""
-						placeholder="Title" data-ng-model="event.title" required/>
+						placeholder="Title" data-ng-model="event.title" required />
 				</div>
 
 				<!-- Break -->
@@ -32,19 +32,19 @@
 				<!-- Break -->
 				<div class="6u$ 12u$(small)">
 					<label>Dead Line</label> <input type="text" name="date" id="date"
-						data-ng-model="event.deadLine" placeholder="DD-MM-YYYY" required/>
+						data-ng-model="event.deadLine" placeholder="DD-MM-YYYY" required />
 
 				</div>
 				<!-- Break -->
 				<div class="12u$">
 					<ul class="actions">
-						<li><input type="submit" value="Submit" /></li>
+						<li><input type="button" value="Update"
+							data-ng-click="update()" /></li>
 						<li><input type="reset" value="Reset" class="alt" /></li>
 					</ul>
 				</div>
 			</div>
 		</form>
 	</div>
-
 </body>
 </html>

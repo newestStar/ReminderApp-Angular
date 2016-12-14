@@ -5,16 +5,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="icon" type="image/x-icon" href="c_resource/images/remind.png" />
 <link rel="stylesheet" href="c_resource/assets/css/main.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript" src="c_resource/assets/js/jquery.min.js"></script>
-	
+
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-<title>Insert title here</title>
+<title>Capture what's on your mind | Remindist</title>
 </head>
 <body data-ng-app="myApp" data-ng-controller="userController">
 	<!-- Header -->
@@ -42,11 +44,16 @@
 			<li><a href="#/">Home</a></li>
 			<li><a href="#">Generic</a></li>
 			<li><a href="#/contactUs">Contact Us</a></li>
+			<li data-ng-show="currentUser"><a href="#/addEvent">Add Note</a></li>
+			<li data-ng-show="currentUser"><a href="#/eventList">Note
+					List</a></li>
 
-			<!-- 			<span data-ng-show="currentUser"> -->
-			<li><a href="#/addEvent">Add Note</a></li>
-			<li><a href="#/eventList">Note List</a></li>
-			<!-- 			</span> -->
+		</ul>
+		<ul class="actions vertical">
+			<li data-ng-hide="currentUser"><a href="#/login"
+				class="button fit">Login</a></li>
+			<li data-ng-hide="currentUser"><a href="#/register"
+				class="button fit">Register</a></li>
 		</ul>
 	</nav>
 
@@ -89,6 +96,7 @@
 	<script type="text/javascript" src="c_common/userService.js"></script>
 	<script type="text/javascript" src="c_event/eventController.js"></script>
 	<script type="text/javascript" src="c_event/eventService.js"></script>
+	<script type="text/javascript" src="c_event/editController.js"></script>
 
 </body>
 </html>

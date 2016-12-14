@@ -8,10 +8,10 @@ app.factory('eventService', function($http) {
 
 	var eventService = this;
 
-	eventService.fetchAllEvents = function() {
+	eventService.fetchcompletedEvents = function() {
 
-		console.log('----entering getAllUsers')
-		return $http.get(BASE_URL + "/event/getMyEvents").then(
+		console.log('----entering completed Events')
+		return $http.get(BASE_URL + "/event/getCompletedEvents").then(
 				function(response) {
 					console.log('Status : ' + response.status)
 					return response.data
@@ -19,7 +19,22 @@ app.factory('eventService', function($http) {
 					console.log('Error : ' + response.data)
 					return response.data
 				});
-	}, eventService.createEvent = function(event) {
+	};
+	
+	eventService.fetchUncompletedEvents = function() {
+
+		console.log('----entering completed Events')
+		return $http.get(BASE_URL + "/event/getUnCompletedEvents").then(
+				function(response) {
+					console.log('Status : ' + response.status)
+					return response.data
+				}, function(response) {
+					console.log('Error : ' + response.data)
+					return response.data
+				});
+	};
+
+	eventService.createEvent = function(event) {
 		console.log('entering create event in service')
 		return $http.post(BASE_URL + "/event/addEvent/", event).then(
 				function(response) {
@@ -31,6 +46,59 @@ app.factory('eventService', function($http) {
 					console.log('Error while creating event')
 					return response.data
 				});
+	};
+
+	eventService.getEvent = function(eventId) {
+		return $http.get(BASE_URL + "/event/getEventById/" + eventId)
+	};
+
+	eventService.getEventById = function(eventId) {
+		return $http.get(BASE_URL + "/event/getEventById/" + eventId).then(
+				function(response) {
+					return response.data
+				}, function(error) {
+					console.error('Error GetById' + error)
+				})
+	};
+
+	eventService.updateEvent = function(eventId, event) {
+		console.log('entering update EventId : ' + eventId)
+		console.log('entering update Event :' + event)
+		console.log(BASE_URL + "/event/updateEvent/", eventId, event)
+		return $http.put(BASE_URL + "/event/updateEvent/" + eventId, event);
+	};
+
+	eventService.deleteEvent = function(eventId) {
+		console.log('entering service delete')
+		return $http['delete'](BASE_URL + "/event/deleteEvent/" + eventId)
+				.then(function(response) {
+					console.log(response.status)
+					return response.status
+				}, function() {
+					console.log(response.status)
+				})
+	};
+
+	eventService.complete = function(eventId) {
+		console.log('entering complete service')
+		return $http.get(BASE_URL + "/completed/" + eventId).then(
+				function(response) {
+					console.log(response.status)
+					return response.status
+				}, function() {
+					console.log(reponse.status)
+				})
+	};
+	
+	eventService.unComplete = function(eventId) {
+		console.log('entering unComplete service')
+		return $http.get(BASE_URL + "/Uncompleted/" + eventId).then(
+				function(response) {
+					console.log(response.status)
+					return response.status
+				}, function() {
+					console.log(reponse.status)
+				})
 	};
 
 	return eventService;
