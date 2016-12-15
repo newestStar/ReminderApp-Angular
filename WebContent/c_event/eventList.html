@@ -15,10 +15,12 @@
 		</div>
 
 		<!-- Table List -->
-		<h4>Notes List</h4>
+		<h3>Notes List</h3>
 
 		<div class="table-wrapper">
-			<h3>Uncompleted List</h3>
+			<h4>
+				Tasks have to Complete - <span class="btn btn-primary btn-sm">{{unCompletedEvents.length}}</span>
+			</h4>
 			<table class="alt">
 				<thead>
 					<tr>
@@ -31,15 +33,15 @@
 				</thead>
 				<tbody>
 					<tr data-ng-repeat="uc in unCompletedEvents | filter:search">
-						<td>{{uc.eventId}}</td>
+						<td>{{$index+1}}</td>
 						<td>{{uc.title}}</td>
 						<td>{{uc.eventCreatedDate}}</td>
 						<td><a href="" class="btn btn-success" role="button"
 							data-ng-click="completeEvent(uc.eventId)"> <span
 								class="glyphicons glyphicons-thumbs-up"></span> Completed
 						</a></td>
-						<td><a href="" class="btn btn-info"
-							role="button" data-toggle="modal" data-target="#myModal"
+						<td><a href="" class="btn btn-info" role="button"
+							data-toggle="modal" data-target="#myModal"
 							data-ng-click="getById(uc.eventId)"> <span
 								class="glyphicon glyphicon-info-sign"></span> View
 						</a> <a href="#/edit/{{uc.eventId}}" class="btn btn-warning"
@@ -53,7 +55,12 @@
 
 				</tbody>
 			</table>
-			<h3>Completed Events</h3>
+
+			<hr>
+
+			<h4>
+				Tasks had Completed - <span class="btn btn-primary btn-sm">{{completedEvents.length}}</span>
+			</h4>
 			<table class="alt">
 				<thead>
 					<tr>
@@ -66,15 +73,15 @@
 				</thead>
 				<tbody>
 					<tr data-ng-repeat="ce in completedEvents | filter:search">
-						<td>{{ce.eventId}}</td>
+						<td>{{$index+1}}</td>
 						<td>{{ce.title}}</td>
 						<td>{{ce.eventCreatedDate}}</td>
 						<td><a href="" class="btn btn-primary" role="button"
 							data-ng-click="unCompleteEvent(ce.eventId)"> <span
-								class="glyphicons glyphicons-thumbs-down"></span> UnComplete
+								class="glyphicons glyphicons-thumbs-down"></span>Not-Completed
 						</a></td>
-						<td><a href="" class="btn btn-info"
-							role="button" data-toggle="modal" data-target="#myModal"
+						<td><a href="" class="btn btn-info" role="button"
+							data-toggle="modal" data-target="#myModal"
 							data-ng-click="getById(ce.eventId)"> <span
 								class="glyphicon glyphicon-info-sign"></span> View
 						</a> <a href="#/edit/{{ce.eventId}}" class="btn btn-warning"
