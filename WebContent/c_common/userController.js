@@ -48,8 +48,7 @@ app
 										function(data) {
 											$scope.user = data;
 											if ($scope.user.errorCode == '404') {
-												console
-														.log($scope.user.errorMessage)
+												alert($scope.user.errorMessage)
 												$scope.user.emailId = '';
 												$scope.user.password = '';
 											} else {
