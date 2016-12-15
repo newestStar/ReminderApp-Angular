@@ -16,11 +16,6 @@ Register Page:
 Events List 1:
 ![Alt text](https://github.com/ikismail/ReminderFrontEnd/blob/newlyupdate/WebContent/c_resource/images/Screenshots/eventList1.png "List 1")
 
-
-Events List 2:
-![Alt text](https://github.com/ikismail/ReminderFrontEnd/blob/newlyupdate/WebContent/c_resource/images/Screenshots/eventList2.png "List 2")
-
-
 Add Event:
 ![Alt text](https://github.com/ikismail/ReminderFrontEnd/blob/newlyupdate/WebContent/c_resource/images/Screenshots/addNotes.png "Add Note Page")
 
