@@ -12,7 +12,8 @@ app.config(function($routeProvider) {
 	.when('/', {
 		templateUrl : 'c_common/middle.html'
 	}).when('/contactUs', {
-		templateUrl : 'c_common/contactUs.html'
+		templateUrl : 'c_contact/contactUs.html',
+		controller : 'contactController'
 			
 	}).when('/register', {
 		templateUrl : 'c_common/register.html',
